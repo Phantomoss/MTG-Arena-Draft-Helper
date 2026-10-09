@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtghelper"
+version = "0.1.0"
+description = "MTG Arena Limited helper - data layer (17Lands public datasets + Scryfall card data)"
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31", "pandas>=2.2", "PySide6>=6.8"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+mtghelper = "mtghelper.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
